@@ -1,0 +1,9 @@
+{
+  "engines": {
+    "node": "0.10.8"
+  },
+  "dependencies": {
+    "socket.io": "~0.9.16",
+    "xml2json": "~0.3.2"
+  }
+}
