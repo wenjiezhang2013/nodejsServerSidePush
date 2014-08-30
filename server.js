@@ -21,7 +21,6 @@ function handler(req, res) {
 
 // creating a new websocket to keep the content updated without any AJAX request
 io.sockets.on('connection', function(socket) {
-  console.log(__dirname);
   // watching the xml file
   fs.watch(__dirname + '/example.xml', function(curr, prev) {
     // on file change we can read the new xml
@@ -29,6 +28,7 @@ io.sockets.on('connection', function(socket) {
       if (err) throw err;
       // parsing the new xml data and converting them into json file
       var json = parser.toJson(data);
+      json = JSON.parse(json);
       // adding the time of the last update
       json.updatedTime = new Date();
       // send the new data to the client
